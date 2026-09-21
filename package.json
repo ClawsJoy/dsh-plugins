@@ -8,7 +8,7 @@
   "packageManager": "pnpm@11.7.0",
   "scripts": {
     "test": "vitest run",
-    "typecheck": "tsc -b packages/session-persistence-tolerant packages/session-retention"
+    "typecheck": "tsc -b packages/session-persistence-tolerant packages/session-retention packages/tool-attribution packages/token-cost"
   },
   "devDependencies": {
     "@types/node": "^22.10.0",

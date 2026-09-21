@@ -1,0 +1,48 @@
+{
+  "name": "@clawsjoy/dsh-tool-attribution",
+  "version": "0.1.0",
+  "description": "Publishes DSH_TOOL_CALL_ID/DSH_TOOL_NAME for shell tool executions via the public ctx.shellEnv registry.",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ClawsJoy/dsh-plugins.git",
+    "directory": "packages/tool-attribution"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "types": "./lib/types/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "lib/*.js",
+    "lib/types/**/*.d.ts",
+    "README.md"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "observability",
+    "attribution"
+  ],
+  "scripts": {
+    "build": "tsc -b",
+    "test": "vitest run"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.8"
+  }
+}
