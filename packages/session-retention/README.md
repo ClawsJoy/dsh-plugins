@@ -36,7 +36,7 @@ records that it was an opt-in).
 ## Install
 
 ```sh
-dsh plugin add --profile web @clawsjoy/dsh-session-retention
+dsh plugin --profile web add @clawsjoy/dsh-session-retention
 ```
 
 ```yaml

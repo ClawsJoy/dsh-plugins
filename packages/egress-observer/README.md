@@ -31,7 +31,7 @@ connection: **a record, not a fence.**
 ## Install
 
 ```sh
-dsh plugin add --profile web @clawsjoy/dsh-egress-observer
+dsh plugin --profile web add @clawsjoy/dsh-egress-observer
 ```
 
 No row is disabled: the observer adds a sampler, it does not replace the

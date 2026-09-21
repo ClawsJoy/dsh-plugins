@@ -30,7 +30,7 @@ package yet.
 ## Install
 
 ```sh
-dsh plugin add --profile web @clawsjoy/dsh-token-cost
+dsh plugin --profile web add @clawsjoy/dsh-token-cost
 ```
 
 ```yaml

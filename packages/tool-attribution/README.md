@@ -31,7 +31,7 @@ ctx.shellEnv.register({
 ## Install
 
 ```sh
-dsh plugin add --profile web @clawsjoy/dsh-tool-attribution
+dsh plugin --profile web add @clawsjoy/dsh-tool-attribution
 ```
 
 ```yaml

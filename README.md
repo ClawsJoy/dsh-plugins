@@ -18,7 +18,7 @@ never patched into the DSH source tree.
 ## Install
 
 ```sh
-dsh plugin add --profile web @clawsjoy/dsh-session-persistence-tolerant
+dsh plugin --profile web add @clawsjoy/dsh-session-persistence-tolerant
 ```
 
 then swap the profile row (see each package's README for its exact patch).

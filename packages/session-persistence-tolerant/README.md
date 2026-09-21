@@ -42,7 +42,7 @@ Published on npm as [`@clawsjoy/dsh-session-persistence-tolerant`](https://www.n
 (MIT, no runtime dependencies):
 
 ```sh
-dsh plugin add --profile web @clawsjoy/dsh-session-persistence-tolerant
+dsh plugin --profile web add @clawsjoy/dsh-session-persistence-tolerant
 ```
 
 Installing straight from this repository works too, so nothing here depends on a
