@@ -15,11 +15,38 @@ jobs:
         with:
           node-version: 22
           cache: pnpm
-      # Host packages stay uninstalled (see autoInstallPeers in
+      # Host packages stay uninstalled here (see autoInstallPeers in
       # pnpm-workspace.yaml): a profile links the single host copy from the DSH
       # installation anchor, and two copies of a cordis Service class must never
-      # exist.
+      # exist. This job therefore covers the host-independent half: the pure
+      # policy/scan tests, which are the ones that must never regress.
       - run: pnpm install --frozen-lockfile
       - run: pnpm test
-      # Type-checking needs a host install; the pinned host-matrix job lands with
-      # the end-to-end smoke test (a matrix over published host versions).
+
+  # "Works after a DSH upgrade" as an automated judgement: typecheck and test
+  # against pinned *published* host versions. A green build against an
+  # unverified host set would be a fake green, which is why this is separate
+  # from the job above and names its versions explicitly.
+  host-matrix:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        host: ['0.1.0-rc.8']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: install pinned host `${{ matrix.host }}`
+        run: |
+          pnpm add -D -w --config.strict-dep-builds=false \
+            @deepseek-ai/cordis@4.0.2 \
+            @deepseek-ai/dsh-session@${{ matrix.host }} \
+            @deepseek-ai/dsh-session-persistence@${{ matrix.host }} \
+            @deepseek-ai/dsh-session-persistence-jsonl@${{ matrix.host }}
+      - run: pnpm typecheck
+      - run: pnpm test
