@@ -15,6 +15,11 @@ jobs:
         with:
           node-version: 22
           cache: pnpm
-      - run: pnpm install --frozen-lockfile
+      # Host packages are peers on purpose: a profile links the single copy from
+      # the DSH installation anchor, and two copies of a cordis Service class
+      # must never exist. The flag is explicit so a lockfile can never silently
+      # grow a second host copy.
+      - run: pnpm install --frozen-lockfile --config.auto-install-peers=false
       - run: pnpm test
-      - run: pnpm typecheck
+      # Type-checking needs a host install; the pinned host-matrix job lands with
+      # the end-to-end smoke test (a matrix over published host versions).
