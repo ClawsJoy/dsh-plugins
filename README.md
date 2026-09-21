@@ -10,6 +10,10 @@ never patched into the DSH source tree.
 | Package | What it does |
 |---|---|
 | [`@clawsjoy/dsh-session-persistence-tolerant`](packages/session-persistence-tolerant) | Listing tolerance + fault surfacing for the jsonl session backend: a corrupt or headerless session log stops disappearing silently. |
+| [`@clawsjoy/dsh-session-retention`](packages/session-retention) | Keeps session logs whole: the size cap is opt-in because a rotated log cannot be loaded (`seq gap in committed region`). |
+| [`@clawsjoy/dsh-tool-attribution`](packages/tool-attribution) | Publishes `DSH_TOOL_CALL_ID`/`DSH_TOOL_NAME` for shell executions through the public `ctx.shellEnv` registry. |
+| [`@clawsjoy/dsh-token-cost`](packages/token-cost) | A `ctx.tokenCost` service with configurable pricing (1/10000 ¥ units) and an honest `fullyPriced` flag. |
+| [`@clawsjoy/dsh-egress-observer`](packages/egress-observer) | Record-only egress observation attributed by `DSH_TOOL_CALL_ID` (Linux /proc; never blocks, never prevents a connection). |
 
 ## Install
 
