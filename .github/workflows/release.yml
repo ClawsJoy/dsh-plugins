@@ -1,11 +1,11 @@
 name: release
 
-# Dormant until npm Trusted Publishing is configured for this repository:
-# after the first (manually authenticated) publish, add a Trusted Publisher on
-# npmjs.com for package @clawsjoy/dsh-session-persistence-tolerant pointing at
-# this repo and this workflow file. From then on npm exchanges the OIDC token
-# below for a short-lived publish credential, so no token or OTP ever lives in
-# the repo, in secrets, or on a developer machine.
+# Publishing goes through npm Trusted Publishing: a trusted relationship for
+# @clawsjoy/dsh-session-persistence-tolerant already exists (type github, repo
+# ClawsJoy/dsh-plugins, file release.yml, permission publish). npm exchanges the
+# OIDC token below for a short-lived credential, so no token and no OTP ever
+# lives in the repo, in secrets, or on a developer machine. Verify with:
+#   npx npm@12 trust list @clawsjoy/dsh-session-persistence-tolerant
 on:
   push:
     tags: ['v*']
@@ -25,6 +25,9 @@ jobs:
         with:
           node-version: 22
           registry-url: https://registry.npmjs.org
+      # Trusted publishing needs a recent npm: the CLI bundled with Node 22 is
+      # too old to exchange the OIDC token.
+      - run: npm install -g npm@12
       - run: pnpm install --frozen-lockfile
       - run: pnpm test
       - run: pnpm --filter @clawsjoy/dsh-session-persistence-tolerant build
