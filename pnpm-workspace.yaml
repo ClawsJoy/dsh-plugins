@@ -1,2 +1,10 @@
 packages:
   - 'packages/*'
+
+# Host packages are peers on purpose: a profile links the single copy from the
+# DSH installation anchor, and two copies of a cordis Service class must never
+# exist. pnpm reads these from the workspace file (the project .npmrc is not the
+# source of truth for pnpm settings), and the lockfile records them, so CI's
+# frozen install and every 'pnpm run' agree.
+autoInstallPeers: false
+strictPeerDependencies: false
