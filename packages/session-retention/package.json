@@ -1,6 +1,6 @@
 {
   "name": "@clawsjoy/dsh-session-retention",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Never front-truncate a DSH session log: keeps logs whole by default and treats the size cap as opt-in, because a rotated log cannot be loaded (seq gap in committed region).",
   "type": "module",
   "license": "MIT",

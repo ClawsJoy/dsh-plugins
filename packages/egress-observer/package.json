@@ -1,6 +1,6 @@
 {
   "name": "@clawsjoy/dsh-egress-observer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Record-only egress observation for tool subprocesses, attributed by DSH_TOOL_CALL_ID (Linux /proc; never blocks, never throws).",
   "type": "module",
   "license": "MIT",

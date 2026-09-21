@@ -1,6 +1,6 @@
 {
   "name": "@clawsjoy/dsh-tool-attribution",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Publishes DSH_TOOL_CALL_ID/DSH_TOOL_NAME for shell tool executions via the public ctx.shellEnv registry.",
   "type": "module",
   "license": "MIT",

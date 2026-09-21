@@ -1,6 +1,6 @@
 {
   "name": "@clawsjoy/dsh-token-cost",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A ctx.tokenCost service converting token usage to cost with configurable pricing.",
   "type": "module",
   "license": "MIT",
