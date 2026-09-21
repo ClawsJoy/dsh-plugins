@@ -1,10 +1,10 @@
 name: release
 
-# Publishing goes through npm Trusted Publishing: a trusted relationship for
-# @clawsjoy/dsh-session-persistence-tolerant already exists (type github, repo
-# ClawsJoy/dsh-plugins, file release.yml, permission publish). npm exchanges the
-# OIDC token below for a short-lived credential, so no token and no OTP ever
-# lives in the repo, in secrets, or on a developer machine. Verify with:
+# Publishing goes through npm Trusted Publishing (a trusted relationship exists
+# for both packages, type github, repo ClawsJoy/dsh-plugins, file release.yml,
+# permission publish). npm exchanges the OIDC token below for a short-lived
+# credential, so no token and no OTP ever lives in the repo, in secrets, or on a
+# developer machine. Verify with:
 #   npx npm@12 trust list @clawsjoy/dsh-session-persistence-tolerant
 on:
   push:
@@ -30,8 +30,21 @@ jobs:
       - run: npm install -g npm@12
       - run: pnpm install --frozen-lockfile
       - run: pnpm test
-      - run: pnpm --filter @clawsjoy/dsh-session-persistence-tolerant build
+      - run: |
+          pnpm --filter @clawsjoy/dsh-session-persistence-tolerant build
+          pnpm --filter @clawsjoy/dsh-session-retention build
+      # Idempotent per package: an already-published version is skipped, so a
+      # re-run never fails on EPUBLISHCONFLICT and never republishes.
       - name: publish (trusted publishing / provenance)
         run: |
-          cd packages/session-persistence-tolerant
-          npm publish --provenance --access public
+          set -e
+          for pkg in session-persistence-tolerant session-retention; do
+            name=$(node -p "require('./packages/$pkg/package.json').name")
+            version=$(node -p "require('./packages/$pkg/package.json').version")
+            if npm view "$name@$version" version >/dev/null 2>&1; then
+              echo "skip $name@$version (already published)"
+              continue
+            fi
+            echo "publish $name@$version"
+            (cd "packages/$pkg" && npm publish --provenance --access public)
+          done
