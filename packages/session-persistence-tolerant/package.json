@@ -1,0 +1,43 @@
+{
+  "name": "@clawsjoy/dsh-session-persistence-tolerant",
+  "version": "0.1.0",
+  "description": "Listing tolerance and fault surfacing for the DSH jsonl session backend: a corrupt or headerless session log stops disappearing silently.",
+  "type": "module",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "types": "./lib/types/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "lib/scan.js",
+    "lib/types/**/*.d.ts",
+    "README.md"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "session-persistence",
+    "observability"
+  ],
+  "scripts": {
+    "build": "tsc -b",
+    "test": "vitest run"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": ">=0.1.0-rc.5 <0.2.0",
+    "@deepseek-ai/dsh-session": ">=0.1.0-rc.5 <0.2.0",
+    "@deepseek-ai/dsh-session-persistence": ">=0.1.0-rc.5 <0.2.0",
+    "@deepseek-ai/dsh-session-persistence-jsonl": ">=0.1.0-rc.5 <0.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.8"
+  }
+}
