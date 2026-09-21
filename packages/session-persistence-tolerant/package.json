@@ -43,6 +43,20 @@
     "@deepseek-ai/dsh-session-persistence": ">=0.1.0-rc.5 <0.2.0",
     "@deepseek-ai/dsh-session-persistence-jsonl": ">=0.1.0-rc.5 <0.2.0"
   },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/cordis": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-session": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-session-persistence": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-session-persistence-jsonl": {
+      "optional": true
+    }
+  },
   "devDependencies": {
     "@types/node": "^22.10.0",
     "typescript": "^6.0.3",

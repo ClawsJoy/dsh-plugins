@@ -40,6 +40,11 @@
   "peerDependencies": {
     "@deepseek-ai/cordis": "^4.0.0"
   },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/cordis": {
+      "optional": true
+    }
+  },
   "devDependencies": {
     "@types/node": "^22.10.0",
     "typescript": "^6.0.3",
