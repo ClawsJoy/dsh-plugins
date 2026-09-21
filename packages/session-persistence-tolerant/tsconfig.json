@@ -3,6 +3,7 @@
   "compilerOptions": {
     "rootDir": "src",
     "outDir": "lib",
+    "declarationDir": "lib/types",
     "types": ["node"]
   },
   "include": ["src/**/*.ts"]
