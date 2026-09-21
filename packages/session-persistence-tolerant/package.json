@@ -4,6 +4,11 @@
   "description": "Listing tolerance and fault surfacing for the DSH jsonl session backend: a corrupt or headerless session log stops disappearing silently.",
   "type": "module",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ClawsJoy/dsh-plugins.git",
+    "directory": "packages/session-persistence-tolerant"
+  },
   "publishConfig": {
     "access": "public"
   },
