@@ -42,6 +42,30 @@ importers:
         specifier: ^4.1.8
         version: 4.1.11(@types/node@22.20.4)
 
+  packages/token-cost:
+    devDependencies:
+      '@types/node':
+        specifier: ^22.10.0
+        version: 22.20.4
+      typescript:
+        specifier: ^6.0.3
+        version: 6.0.3
+      vitest:
+        specifier: ^4.1.8
+        version: 4.1.11(@types/node@22.20.4)
+
+  packages/tool-attribution:
+    devDependencies:
+      '@types/node':
+        specifier: ^22.10.0
+        version: 22.20.4
+      typescript:
+        specifier: ^6.0.3
+        version: 6.0.3
+      vitest:
+        specifier: ^4.1.8
+        version: 4.1.11(@types/node@22.20.4)
+
 packages:
 
   '@jridgewell/sourcemap-codec@1.6.0':

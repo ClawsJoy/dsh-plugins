@@ -24,6 +24,14 @@ then swap the profile row (see each package's README for its exact patch).
 ```sh
 pnpm install
 pnpm test
+pnpm typecheck
+```
+
+Adding or changing a package means the lockfile must be regenerated and
+committed, or CI's frozen install fails:
+
+```sh
+pnpm install --lockfile-only   # resolves without touching node_modules
 ```
 
 ## License
