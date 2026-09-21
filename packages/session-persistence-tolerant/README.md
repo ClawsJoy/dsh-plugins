@@ -38,8 +38,18 @@ it.
 
 ## Install
 
+Published on npm as [`@clawsjoy/dsh-session-persistence-tolerant`](https://www.npmjs.com/package/@clawsjoy/dsh-session-persistence-tolerant)
+(MIT, no runtime dependencies):
+
 ```sh
 dsh plugin add --profile web @clawsjoy/dsh-session-persistence-tolerant
+```
+
+Installing straight from this repository works too, so nothing here depends on a
+registry release:
+
+```sh
+dsh plugin --profile web add github:ClawsJoy/dsh-plugins#path:packages/session-persistence-tolerant
 ```
 
 Swap the official row for this one in `~/.dsh/profiles/web/cordis.patch.yml`
