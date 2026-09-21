@@ -14,7 +14,7 @@ on:
       packages:
         description: 'space-separated package directories under packages/'
         required: false
-        default: 'session-persistence-tolerant session-retention tool-attribution token-cost'
+        default: 'session-persistence-tolerant session-retention tool-attribution token-cost egress-observer'
 
 permissions:
   contents: read
@@ -49,6 +49,7 @@ jobs:
       - run: pnpm --filter @clawsjoy/dsh-session-retention build
       - run: pnpm --filter @clawsjoy/dsh-tool-attribution build
       - run: pnpm --filter @clawsjoy/dsh-token-cost build
+      - run: pnpm --filter @clawsjoy/dsh-egress-observer build
       # Idempotent per package: an already-published version is skipped, so a
       # re-run never fails on EPUBLISHCONFLICT and never republishes.
       - name: publish (trusted publishing / provenance)
