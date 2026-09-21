@@ -1,0 +1,49 @@
+{
+  "name": "@clawsjoy/dsh-egress-observer",
+  "version": "0.1.0",
+  "description": "Record-only egress observation for tool subprocesses, attributed by DSH_TOOL_CALL_ID (Linux /proc; never blocks, never throws).",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ClawsJoy/dsh-plugins.git",
+    "directory": "packages/egress-observer"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "types": "./lib/types/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "lib/*.js",
+    "lib/types/**/*.d.ts",
+    "README.md"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "observability",
+    "egress",
+    "subprocess"
+  ],
+  "scripts": {
+    "build": "tsc -b",
+    "test": "vitest run"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.8"
+  }
+}

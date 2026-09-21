@@ -18,6 +18,18 @@ importers:
         specifier: ^4.1.8
         version: 4.1.11(@types/node@22.20.4)
 
+  packages/egress-observer:
+    devDependencies:
+      '@types/node':
+        specifier: ^22.10.0
+        version: 22.20.4
+      typescript:
+        specifier: ^6.0.3
+        version: 6.0.3
+      vitest:
+        specifier: ^4.1.8
+        version: 4.1.11(@types/node@22.20.4)
+
   packages/session-persistence-tolerant:
     devDependencies:
       '@types/node':
