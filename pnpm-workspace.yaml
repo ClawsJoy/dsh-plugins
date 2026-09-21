@@ -8,3 +8,9 @@ packages:
 # frozen install and every 'pnpm run' agree.
 autoInstallPeers: false
 strictPeerDependencies: false
+
+# The host-matrix job installs a pinned host, whose jsonl backend depends on
+# koffi (native). Koffi ships prebuilt binaries and its build script is not
+# needed for typechecking or for our tests, so an ignored build script must be a
+# warning rather than a failure — otherwise 'pnpm run' refuses to start.
+strictDepBuilds: false
